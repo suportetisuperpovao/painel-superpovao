@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="icon" type="image/png" href="IMG/LOGO.png">
+    <meta charset="UTF-8">
+    <title>Controle de Perdas Padaria - Super Povão</title>
+    <style>
+                /* Configurações de página e impressão */
+        @page {
+            size: A4 portrait;
+            margin: 15mm 15mm;
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            background-color: #fff;
+        }
+        @media print {
+            body { padding: 0; }
+        }
+
+        /* Cabeçalho */
+        .header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        .logo {
+            width: 140px;
+            filter: grayscale(100%); 
+            object-fit: contain;
+        }
+        .title-container {
+            flex-grow: 1;
+            text-align: center;
+        }
+        .title-container h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+        .title-container h2 {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+            font-weight: normal;
+        }
+
+        /* Informações do Formulário */
+        .info-section {
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .info-row {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-end;
+        }
+        .line {
+            border-bottom: 1px solid #000;
+            flex-grow: 1;
+            margin-left: 5px;
+            height: 18px;
+        }
+
+        /* Tabela */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 6px 4px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            -webkit-print-color-adjust: exact;
+            color-adjust: exact;
+        }
+        td {
+            height: 24px;
+        }
+        
+        /* Proporções das colunas ajustadas */
+        .col-cod { width: 25%; }
+        .col-nome { width: 32%; text-align: left !important; padding-left: 8px !important; }
+        .col-qtd { width: 10%; }
+        .col-motivo { width: 20%; }
+        .col-obs { width: 17%; }
+
+        /* Rodapé */
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+        .signature-box {
+            text-align: center;
+            width: 40%;
+        }
+        .signature-line {
+            border-top: 1px solid #000;
+            padding-top: 5px;
+        }
+
+        /* Input do Mês */
+        .mes-input {
+            border: none;
+            border-bottom: 1px solid #000;
+            background: transparent;
+            outline: none;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            width: 120px;
+            padding: 0 2px;
+            margin-left: 5px;
+        }
+
+        .mes-input:focus {
+            border-bottom: 1px solid #000;
+        }
+
+        /* Estilo do botão para aparecer corretamente na tela */
+        .btn-imprimir {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .btn-imprimir:hover {
+            background-color: #0056b3;
+        }
+
+        /* Regras exclusivas para o momento da impressão */
+        @media print {
+    .mes-input {
+        border: none !important;
+        background: transparent;
+        color: #000;
+        -webkit-appearance: none;
+        appearance: none;
+        outline: none;
+    }
+
+    .btn-imprimir {
+        display: none !important;
+    }
+}
+
+    </style>
+</head>
+
+<script>
+function imprimirRegistro() {
+    const mes = document.querySelector('.mes-input');
+
+    if (!mes.value.trim()) {
+        alert('Por favor, preencha o mês antes de imprimir.');
+        mes.focus();
+        return;
+    }
+
+    window.print();
+}
+</script>
+
+<body>
+
+    <button onclick="imprimirRegistro()" class="btn-imprimir">
+    🖨️ Imprimir Registro
+    </button>
+
+    <div class="header">
+        <img src="IMG/LOGO.png" alt="Logo Super Povão" class="logo">
+        <div class="title-container">
+            <h1>PERDAS</h1>
+            <h2>REGISTRO DE PERDAS PADARIA</h2>
+        </div>
+        <div style="width: 140px;"></div>
+    </div>
+
+   <div class="info-row">
+    <strong>Mês:</strong>
+    <input
+        type="text"
+        class="mes-input"
+        maxlength="20"
+        placeholder="Digite o mês"
+        required>
+   </div>
+        <div class="info-row">
+            <strong>Setor:</strong> <div class="line"></div>
+        </div>
+        <div class="info-row">
+            <strong>Responsável pela conferência:</strong> <div class="line"></div>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="col-cod">Código</th>
+                <th class="col-nome">Nome do Produto</th>
+                <th class="col-qtd">Qtd.</th>
+                <th class="col-motivo">Motivo<br><span style="font-size: 10px; font-weight: normal;">(Vencido/Avariado)</span></th>
+                <th class="col-obs">Observações<br><span style="font-size: 10px; font-weight: normal;">(Data)</span></th>
+            </tr>
+        </thead>
+        <tbody contenteditable="true">
+            <!-- 29 Linhas exatas -->
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+    </table>
+
+    <div class="footer">
+        <div class="signature-box">
+            <div class="signature-line">Assinatura do colaborador</div>
+        </div>
+        
+        <div class="signature-box">
+            <div class="signature-line">Conferência da gerência</div>
+        </div>
+    </div>
+
+</body>
+</html>

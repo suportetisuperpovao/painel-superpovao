@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <link rel="icon" type="image/png" href="LOGO.png">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel - Super Povão</title>
+
+
+    <style>
+
+        /* =========================================
+           CONFIGURAÇÕES GERAIS
+        ========================================= */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            margin: 0;
+
+            padding: 0;
+
+            background-color: #f4f6f9;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            min-height: 100vh;
+
+        }
+
+
+        /* =========================================
+           PAINEL PRINCIPAL
+        ========================================= */
+
+        .panel-container {
+
+            text-align: center;
+
+            background-color: #ffffff;
+
+            padding: 55px;
+
+            border-radius: 16px;
+
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+
+            width: 100%;
+
+            max-width: 700px;
+
+            margin: 20px;
+
+        }
+
+
+        /* =========================================
+           LOGOTIPO
+        ========================================= */
+
+        .logo-container {
+
+            margin-bottom: 35px;
+
+            height: 160px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+
+        .logo-container img {
+
+            max-height: 100%;
+
+            max-width: 100%;
+
+            object-fit: contain;
+
+        }
+
+
+        /* =========================================
+           TÍTULO
+        ========================================= */
+
+        h1 {
+
+            color: #333333;
+
+            font-size: 32px;
+
+            margin: 0 0 12px 0;
+
+            letter-spacing: 0.5px;
+
+        }
+
+
+        /* =========================================
+           TEXTO
+        ========================================= */
+
+        p {
+
+            color: #666666;
+
+            font-size: 18px;
+
+            margin: 0 0 45px 0;
+
+        }
+
+
+        /* =========================================
+           GRUPO DOS BOTÕES
+        ========================================= */
+
+        .button-group {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+
+        }
+
+
+        /* =========================================
+           BOTÃO PADRÃO - AZUL
+        ========================================= */
+
+        .panel-btn {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 16px;
+
+            background-color: #007bff;
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            padding: 24px 32px;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            border-radius: 10px;
+
+            transition:
+                background-color 0.2s,
+                transform 0.1s;
+
+            box-shadow: 0 3px 6px rgba(0, 123, 255, 0.15);
+
+            cursor: pointer;
+
+        }
+
+
+        .panel-btn:hover {
+
+            background-color: #0056b3;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .panel-btn:active {
+
+            transform: translateY(1px);
+
+        }
+
+
+        /* =========================================
+           BOTÃO VERDE
+        ========================================= */
+
+        .panel-btn.secondary {
+
+            background-color: #28a745;
+
+            box-shadow: 0 3px 6px rgba(40, 167, 69, 0.15);
+
+        }
+
+
+        .panel-btn.secondary:hover {
+
+            background-color: #218838;
+
+        }
+
+
+        /* =========================================
+           BOTÕES DOS PDFs
+        ========================================= */
+
+        .panel-btn.pdf {
+
+            background-color: #dc3545;
+
+            box-shadow: 0 3px 6px rgba(220, 53, 69, 0.15);
+
+        }
+
+
+        .panel-btn.pdf:hover {
+
+            background-color: #bd2130;
+
+        }
+
+
+        /* =========================================
+           RESPONSIVIDADE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .panel-container {
+
+                padding: 30px 20px;
+
+            }
+
+
+            .logo-container {
+
+                height: 120px;
+
+            }
+
+
+            h1 {
+
+                font-size: 26px;
+
+            }
+
+
+            p {
+
+                font-size: 16px;
+
+                margin-bottom: 30px;
+
+            }
+
+
+            .panel-btn {
+
+                font-size: 17px;
+
+                padding: 20px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         PAINEL PRINCIPAL
+    ========================================= -->
+
+    <div class="panel-container">
+
+
+        <!-- LOGOTIPO -->
+
+        <div class="logo-container">
+
+            <img
+                src="LOGO.png"
+                alt="Logo Super Povão"
+            >
+
+        </div>
+
+
+        <!-- TÍTULO -->
+
+        <h1>SUPER POVÃO</h1>
+
+
+        <!-- DESCRIÇÃO -->
+
+        <p>
+            Selecione a folha que deseja imprimir:
+        </p>
+
+
+        <!-- =========================================
+             BOTÕES
+        ========================================= -->
+
+        <div class="button-group">
+
+
+            <!-- =====================================
+                 1 - REGISTRO DE PERDAS PADARIA
+                 PÁGINA HTML
+            ====================================== -->
+
+            <a
+                href="MODELOS DE FOLHA PERDAS_PADARIA/index.html"
+                class="panel-btn"
+            >
+
+                <span>📋</span>
+
+                REGISTRO DE PERDAS PADARIA
+
+            </a>
+
+
+            <!-- =====================================
+                 2 - REGISTRO DE USO/CONSUMO PADARIA
+                 PÁGINA HTML
+            ====================================== -->
+
+            <a
+                href="MODELOS DE FOLHA USO_CONSUMO PADARIA/index.html"
+                class="panel-btn secondary"
+            >
+
+                <span>🍞</span>
+
+                REGISTRO DE USO/CONSUMO PADARIA
+
+            </a>
+
+            <a
+                href="MODELOS DE FOLHA VENCIDOS/index.html"
+                class="panel-btn secondary"
+            >
+
+                <span>⏳</span>
+
+                REGISTRO DE VENCIDOS
+
+            </a>
+
+
+            <!-- =====================================
+                 3 - FOLHA CEASA
+                 ARQUIVO PDF
+            ====================================== -->
+
+            <a
+                href="PDF/FOLHA CEASA.pdf"
+                class="panel-btn pdf"
+                onclick="imprimirPDF('PDF/FOLHA CEASA.pdf'); return false;"
+            >
+
+                <span>🥒</span>
+
+                FOLHA CEASA
+
+            </a>
+
+
+            <!-- =====================================
+                 4 - TABELA RAPADURAS
+                 ARQUIVO PDF
+            ====================================== -->
+
+            <a
+                href="PDF/TABELA RAPADURAS.pdf"
+                class="panel-btn pdf"
+                onclick="imprimirPDF('PDF/TABELA RAPADURAS.pdf'); return false;"
+            >
+
+                <span>🍯</span>
+
+                FOLHA CÓDIGO RAPADURAS
+
+            </a>
+
+
+            <!-- =====================================
+                 5 - CARDÁPIO PADARIA
+                 ARQUIVO PDF
+            ====================================== -->
+
+            <a
+                href="PDF/CARDAPIO PADARIA.pdf"
+                class="panel-btn pdf"
+                onclick="imprimirPDF('PDF/CARDAPIO PADARIA.pdf'); return false;"
+            >
+
+                <span>🥖</span>
+
+                FOLHA CARDÁPIO PADARIA
+
+            </a>
+
+
+            <!-- =====================================
+                 6 - CARDÁPIO PADARIA 2
+                 ARQUIVO PDF
+            ====================================== -->
+
+            <a
+                href="PDF/CARDAPIO PADARIA 2.pdf"
+                class="panel-btn pdf"
+                onclick="imprimirPDF('PDF/CARDAPIO PADARIA 2.pdf'); return false;"
+            >
+
+                <span>🥐</span>
+
+                FOLHA CARDÁPIO PADARIA 2
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         FUNÇÃO DE IMPRESSÃO DOS PDFs
+    ========================================= -->
+
+    <script>
+
+        function imprimirPDF(arquivo) {
+
+            const janela = window.open(arquivo, '_blank');
+
+
+            if (!janela) {
+
+                alert(
+                    'O navegador bloqueou a abertura do PDF. ' +
+                    'Permita pop-ups para este site e tente novamente.'
+                );
+
+                return;
+
+            }
+
+
+            janela.onload = function () {
+
+                janela.focus();
+
+                janela.print();
+
+            };
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
