@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <link rel="icon" type="image/png" href="LOGO.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel - Super Povão</title>
+
+    <style>
+
+        * ,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f5f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* PAINEL PRINCIPAL */
+
+        .panel-container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 55px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 700px;
+            margin: 20px;
+        }
+
+        /* LOGOTIPO */
+
+        .logo-container {
+            margin-bottom: 35px;
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-container img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        /* TÍTULO */
+
+        h1 {
+            color: #222222;
+            font-size: 32px;
+            margin: 0 0 12px 0;
+            letter-spacing: 1px;
+        }
+
+        /* DESCRIÇÃO */
+
+        p {
+            color: #777777;
+            font-size: 18px;
+            margin: 0 0 45px 0;
+        }
+
+        /* GRUPO DOS BOTÕES */
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        /* BOTÕES PADRÃO */
+
+        .panel-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: #ffffff;
+            color: #222222;
+
+            text-decoration: none;
+            padding: 23px 32px;
+
+            font-size: 19px;
+            font-weight: bold;
+
+            border: 2px solid #222222;
+            border-radius: 8px;
+
+            transition: all 0.2s ease;
+
+            cursor: pointer;
+        }
+
+        /* BOTÕES DOURADOS */
+
+        .panel-btn.secondary {
+            border-color: #b08a36;
+            color: #a17c2e;
+        }
+
+        /* EFEITO AO PASSAR O MOUSE */
+
+        .panel-btn:hover {
+            background-color: #222222;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .panel-btn.secondary:hover {
+            background-color: #b08a36;
+            border-color: #b08a36;
+            color: #ffffff;
+        }
+
+        /* CLIQUE */
+
+        .panel-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* RESPONSIVIDADE */
+
+        @media (max-width: 600px) {
+
+            .panel-container {
+                padding: 30px 20px;
+            }
+
+            .logo-container {
+                height: 120px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            p {
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+
+            .panel-btn {
+                font-size: 16px;
+                padding: 20px 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- PAINEL PRINCIPAL -->
+
+    <div class="panel-container">
+
+        <!-- LOGOTIPO -->
+
+        <div class="logo-container">
+
+            <img src="LOGO.png" alt="Logo Super Povão">
+
+        </div>
+
+        <!-- TÍTULO -->
+
+        <h1>SUPER POVÃO</h1>
+
+        <!-- DESCRIÇÃO -->
+
+        <p>
+            Selecione a folha que deseja imprimir:
+        </p>
+
+        <!-- BOTÕES -->
+
+        <div class="button-group">
+
+            <a
+                href="MODELOS DE FOLHA VENCIDOS/index.html"
+                class="panel-btn"
+            >
+                REGISTRO DE VENCIDOS
+            </a>
+
+            <a
+                href="FOLHA CEASA ATUAL.html"
+                class="panel-btn"
+            >
+                FOLHA CEASA
+            </a>
+
+
+        </div>
+
+    </div>
+
+    <!-- FUNÇÃO DE IMPRESSÃO DOS PDFs -->
+
+    <script>
+
+        function imprimirPDF(arquivo) {
+
+            const janela = window.open(arquivo, '_blank');
+
+            if (!janela) {
+
+                alert(
+                    'O navegador bloqueou a abertura do PDF. ' +
+                    'Permita pop-ups para este site e tente novamente.'
+                );
+
+                return;
+
+            }
+
+            janela.onload = function () {
+
+                janela.focus();
+                janela.print();
+
+            };
+
+        }
+
+    </script>
+
+</body>
+
+</html>
