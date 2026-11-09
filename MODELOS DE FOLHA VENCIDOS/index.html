@@ -3,7 +3,7 @@
 <head>
     <link rel="icon" type="image/png" href="IMG/LOGO.png">
     <meta charset="UTF-8">
-    <title>Controle de Perdas Padaria - Super Povão</title>
+    <title>Folha de Registro - Super Povão</title>
     <style>
                 /* Configurações de página e impressão */
         @page {
@@ -172,7 +172,7 @@ function imprimirRegistro() {
     const mes = document.querySelector('.mes-input');
 
     if (!mes.value.trim()) {
-        alert('Por favor, preencha o mês antes de imprimir.');
+        alert('Por favor, preencha a data antes de imprimir.');
         mes.focus();
         return;
     }
@@ -184,25 +184,25 @@ function imprimirRegistro() {
 <body>
 
     <button onclick="imprimirRegistro()" class="btn-imprimir">
-    🖨️ Imprimir Registro
+    🖨️ Imprimir Folha
     </button>
 
     <div class="header">
         <img src="IMG/LOGO.png" alt="Logo Super Povão" class="logo">
         <div class="title-container">
             <h1>SUPER POVÃO</h1>
-            <h2>REGISTRO DE VENCIDOS</h2>
+            <h2>FOLHA DE REGISTRO</h2>
         </div>
         <div style="width: 140px;"></div>
     </div>
 
    <div class="info-row">
-    <strong>Mês:</strong>
+    <strong>Data:</strong>
     <input
         type="text"
         class="mes-input"
         maxlength="20"
-        placeholder="Digite o mês"
+        placeholder="Digite a data"
         required>
    </div>
         <div class="info-row">
@@ -219,12 +219,14 @@ function imprimirRegistro() {
                 <th class="col-cod">Código</th>
                 <th class="col-nome">Nome do Produto</th>
                 <th class="col-qtd">Qtd.</th>
-                <th class="col-motivo">Motivo<br><span style="font-size: 10px; font-weight: normal;">(Vencido/Avariado)</span></th>
-                <th class="col-obs">Observações<br><span style="font-size: 10px; font-weight: normal;">(Data)</span></th>
+                <th class="col-motivo">Motivo<br></th>
+                <th class="col-obs">Observações<br></th>
             </tr>
         </thead>
         <tbody contenteditable="true">
             <!-- 28 Linhas exatas -->
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
             <tr><td></td><td></td><td></td><td></td><td></td></tr>
             <tr><td></td><td></td><td></td><td></td><td></td></tr>
             <tr><td></td><td></td><td></td><td></td><td></td></tr>
